@@ -9,32 +9,36 @@ namespace Welcome
             //Welcome msg
             Console.WriteLine("Welcome to the Employee Wage Problem!");
             //Constants
-            int IsFullTime = 1;
-            int IsPartTime = 0;
-            int EmpRatePerHour = 20;
-            //Variables & Calculation
+            const int IsFullTime = 1;
+            const int IsPartTime = 0;
+            const int EmpRatePerHour = 20;
+            //Variables & Calculation using switch
             int empWage = 0;
             int empHr = 0;
 
             Random random = new Random();
             int empCheck = random.Next(0, 3);
-            if (empCheck == IsPartTime)
+            switch (empCheck)
             {
-                Console.WriteLine("Part time Employee is Present.");
-                empHr = 4;
+                case IsPartTime:
+                    empHr = 4;
+                    empWage = empHr * EmpRatePerHour;
+                    Console.WriteLine("Part time Employee is present");
+                    Console.WriteLine("Part time Employee Wage = " + empWage);
+                    break;
+
+                case IsFullTime:
+                    empHr = 8;
+                    empWage = empHr * EmpRatePerHour;
+                    Console.WriteLine("Full time Employee is present");
+                    Console.WriteLine("Full time Employee Wage = " + empWage);
+                    empHr = 8;
+                    break;
+
+                default:
+                    Console.WriteLine("Neither Full Time nor Part time Employee is present!");
+                    break;
             }
-            else if (empCheck == IsFullTime)
-            {
-                Console.WriteLine("Full time Employee is Present.");
-                empHr = 8;
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent!");
-                empHr = 0;
-            }
-            empWage = empHr * EmpRatePerHour;
-            Console.WriteLine("Employee Wage = " + empWage);
         }
     }
 }
