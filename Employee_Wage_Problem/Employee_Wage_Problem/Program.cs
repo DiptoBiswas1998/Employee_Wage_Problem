@@ -10,16 +10,22 @@ namespace Welcome
             Console.WriteLine("Welcome to the Employee Wage Problem!");
             //Constants
             int IsFullTime = 1;
+            int IsPartTime = 0;
             int EmpRatePerHour = 20;
-            //Variables
+            //Variables & Calculation
             int empWage = 0;
             int empHr = 0;
-            //Calculation
+
             Random random = new Random();
-            int empCheck = random.Next(0, 2);
-            if (empCheck == IsFullTime)
+            int empCheck = random.Next(0, 3);
+            if (empCheck == IsPartTime)
             {
-                Console.WriteLine("Employee is Present.");
+                Console.WriteLine("Part time Employee is Present.");
+                empHr = 4;
+            }
+            else if (empCheck == IsFullTime)
+            {
+                Console.WriteLine("Full time Employee is Present.");
                 empHr = 8;
             }
             else
