@@ -30,20 +30,17 @@ namespace Welcome
                 {
                     case IsFullTime:
                         empHr = 8;
-                        workingHrs += empHr;
                         break;
                     case IsPartTime:
                         empHr = 4;
-                        workingHrs += empHr;
                         break;
                     default:
                         empHr = 0;
-                        workingHrs += empHr;
                         break;
                 }
+                workingHrs += empHr;
                 empWage = empHr * EmpRatePerHour;
                 empWageTotal += empWage;
-                Console.WriteLine("Employee Wage = " + empWage + " on day " + (day + 1));
             }
             Console.WriteLine("Total days worked = " + day + " Total hours worked = " + workingHrs);
             Console.WriteLine("Monthly Employee Wage = " + empWageTotal);
