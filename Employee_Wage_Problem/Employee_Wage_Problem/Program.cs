@@ -9,31 +9,35 @@ namespace Welcome
             //Welcome msg
             Console.WriteLine("Welcome to the Employee Wage Problem!");
             //Constants
-            int IsFullTime = 1;
-            int IsPartTime = 0;
-            int EmpRatePerHour = 20;
-            //Variables & Calculation
+            const int IsFullTime = 1;
+            const int IsPartTime = 0;
+            const int EmpRatePerHour = 20;
+            //Variables & Calculation using switch
             int empWage = 0;
             int empHr = 0;
+            int flag = 0;
             Random random = new Random();
             int empCheck = random.Next(0, 3);
-            if (empCheck == IsPartTime)
+            switch (empCheck)
             {
-                Console.WriteLine("Part time Employee is Present.");
-                empHr = 4;
+                case IsPartTime:
+                    empHr = 4;
+                    Console.WriteLine("Part time Employee is present");
+                    break;
+                case IsFullTime:
+                    empHr = 8;
+                    Console.WriteLine("Full time Employee is present");
+                    break;
+                default:
+                    Console.WriteLine("Neither Full Time nor Part time Employee is present!");
+                    flag = 1;
+                    break;
             }
-            else if (empCheck == IsFullTime)
+            if (flag == 0)
             {
-                Console.WriteLine("Full time Employee is Present.");
-                empHr = 8;
+                empWage = empHr * EmpRatePerHour;
+                Console.WriteLine("Employee Wage = " + empWage);
             }
-            else
-            {
-                Console.WriteLine("Employee is Absent!");
-                empHr = 0;
-            }
-            empWage = empHr * EmpRatePerHour;
-            Console.WriteLine("Employee Wage = " + empWage);
         }
     }
 }
