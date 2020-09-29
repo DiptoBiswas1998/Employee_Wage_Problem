@@ -15,29 +15,28 @@ namespace Welcome
             //Variables & Calculation using switch
             int empWage = 0;
             int empHr = 0;
-
+            int flag = 0;
             Random random = new Random();
             int empCheck = random.Next(0, 3);
             switch (empCheck)
             {
                 case IsPartTime:
                     empHr = 4;
-                    empWage = empHr * EmpRatePerHour;
                     Console.WriteLine("Part time Employee is present");
-                    Console.WriteLine("Part time Employee Wage = " + empWage);
                     break;
-
                 case IsFullTime:
                     empHr = 8;
-                    empWage = empHr * EmpRatePerHour;
                     Console.WriteLine("Full time Employee is present");
-                    Console.WriteLine("Full time Employee Wage = " + empWage);
-                    empHr = 8;
-                    break;
-
+                    break;    
                 default:
                     Console.WriteLine("Neither Full Time nor Part time Employee is present!");
+                    flag = 1;
                     break;
+            }
+            if( flag == 0 )
+            {
+                empWage = empHr * EmpRatePerHour;
+                Console.WriteLine("Employee Wage = " + empWage);
             }
         }
     }
