@@ -9,6 +9,7 @@ namespace Welcome
         public const int IsFullTime = 1;
         public const int EmpRatePerHour = 20;
         public const int NumOfWorkingDays = 20;
+        public const int TotalNumOfHours = 100;
         static void Main(string[] args)
         {
             //Welcome msg
@@ -17,7 +18,9 @@ namespace Welcome
             int empWage = 0;
             int empHr = 0;
             int empWageTotal = 0;
-            for (int day = 0; day < NumOfWorkingDays; day++)
+            int workingHrs = 0;
+            int day = 0;
+            for (day = 0; day < NumOfWorkingDays && workingHrs < TotalNumOfHours; day++)
             {
                 Random random = new Random();
                 int empCheck = random.Next(0, 3);
@@ -33,9 +36,11 @@ namespace Welcome
                         empHr = 0;
                         break;
                 }
+                workingHrs += empHr;
                 empWage = empHr * EmpRatePerHour;
                 empWageTotal += empWage;
             }
+            Console.WriteLine("Total days worked = " + day + " Total hours worked = " + workingHrs);
             Console.WriteLine("Monthly Employee Wage = " + empWageTotal);
         }
     }
