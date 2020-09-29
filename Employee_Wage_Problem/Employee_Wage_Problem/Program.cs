@@ -4,40 +4,39 @@ namespace Welcome
 {
     class Program
     {
+        //Constants
+        public const int IsPartTime = 0;
+        public const int IsFullTime = 1;
+        public const int EmpRatePerHour = 20;
+        public const int NumOfWorkingDays = 20;
         static void Main(string[] args)
         {
             //Welcome msg
             Console.WriteLine("Welcome to the Employee Wage Problem!");
-            //Constants
-            const int IsFullTime = 1;
-            const int IsPartTime = 0;
-            const int EmpRatePerHour = 20;
-            //Variables & Calculation using switch
+            //Variables & Solution
             int empWage = 0;
             int empHr = 0;
-            int flag = 0;
-            Random random = new Random();
-            int empCheck = random.Next(0, 3);
-            switch (empCheck)
+            int empWageTotal = 0;
+            for (int day = 0; day < NumOfWorkingDays; day++)
             {
-                case IsPartTime:
-                    empHr = 4;
-                    Console.WriteLine("Part time Employee is present");
-                    break;
-                case IsFullTime:
-                    empHr = 8;
-                    Console.WriteLine("Full time Employee is present");
-                    break;
-                default:
-                    Console.WriteLine("Neither Full Time nor Part time Employee is present!");
-                    flag = 1;
-                    break;
-            }
-            if (flag == 0)
-            {
+                Random random = new Random();
+                int empCheck = random.Next(0, 3);
+                switch (empCheck)
+                {
+                    case IsFullTime:
+                        empHr = 8;
+                        break;
+                    case IsPartTime:
+                        empHr = 4;
+                        break;
+                    default:
+                        empHr = 0;
+                        break;
+                }
                 empWage = empHr * EmpRatePerHour;
-                Console.WriteLine("Employee Wage = " + empWage);
+                empWageTotal += empWage;
             }
+            Console.WriteLine("Monthly Employee Wage = " + empWageTotal);
         }
     }
 }
