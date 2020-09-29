@@ -15,7 +15,6 @@ namespace Welcome
             //Variables & Calculation
             int empWage = 0;
             int empHr = 0;
-
             Random random = new Random();
             int empCheck = random.Next(0, 3);
             if (empCheck == IsPartTime)
