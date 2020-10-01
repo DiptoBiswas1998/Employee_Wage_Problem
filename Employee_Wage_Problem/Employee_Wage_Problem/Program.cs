@@ -10,7 +10,7 @@ namespace Welcome
         public const int EmpRatePerHour = 20;
         public const int NumOfWorkingDays = 20;
         public const int TotalNumOfHours = 100;
-        static void Main(string[] args)
+        public static int computeEmpWage()
         {
             //Welcome msg
             Console.WriteLine("Welcome to the Employee Wage Problem!");
@@ -42,6 +42,11 @@ namespace Welcome
             }
             Console.WriteLine("Total days worked = " + day + " Total hours worked = " + workingHrs);
             Console.WriteLine("Monthly Employee Wage = " + empWageTotal);
+            return empWageTotal;
+        }
+        static void Main(string[] args)
+        {
+            computeEmpWage();
         }
     }
 }
